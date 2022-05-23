@@ -65,18 +65,19 @@ void PrintDictionary(int[,] diction)
 {
     for (int j = 0; j < diction.GetLength(1); j++)
     {
-        if (diction[1, j] > 0)
+        if (diction[1, j] % 10 == 2
+        || diction[1, j] % 10 == 3
+        || diction[1, j] % 10 == 4
+        && diction[1, j] % 100 != 12
+        && diction[1, j] % 100 != 13
+        && diction[1, j] % 100 != 14)
         {
-            if (diction[1, j] % 10 == 2
-            || diction[1, j] % 10 == 3
-            || diction[1, j] % 10 == 4)
-            {
-                Console.WriteLine($"Элемент {diction[0, j]} встречается {diction[1, j]} раза");
-            }
-            else Console.WriteLine($"Элемент {diction[0, j]} встречается {diction[1, j]} раз");
+            Console.WriteLine($"Элемент {diction[0, j]} встречается {diction[1, j]} раза");
         }
+        else Console.WriteLine($"Элемент {diction[0, j]} встречается {diction[1, j]} раз");
     }
 }
+
 
 
 int M = 4;
